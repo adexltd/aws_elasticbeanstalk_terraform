@@ -119,6 +119,7 @@ jobs:
           VERSION_LABEL=$(date +%Y%m%d%H%M%S)
           aws elasticbeanstalk create-application-version \
             --application-name ${{env.applicationName}} \
+            --region us-east-1
             --version-label $VERSION_LABEL \
             --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip
   
