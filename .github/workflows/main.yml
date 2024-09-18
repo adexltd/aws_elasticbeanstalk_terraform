@@ -100,7 +100,7 @@ jobs:
         run: ls -la
 
       - name: Upload to S3
-        run: aws s3 cp app.zip s3://${{env.app_bucket_name}}/app.zip
+        run: aws s3 cp app.zip s3://${{env.app_bucket_name}}/app.zip --debug
         working-directory: .
 
 
