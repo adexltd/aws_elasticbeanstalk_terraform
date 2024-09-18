@@ -12,6 +12,7 @@ env:
     AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }} 
     awsRegion: us-east-1
     app_bucket_name: ebs-ue1-eb-d-s3 
+    s3Key: app.zip
     applicationName: ebs-ue1-eb-d-eb-app
     environmentName: ebs-ue1-eb-d-eb-env
     terraformDir: ./terraform
@@ -119,7 +120,7 @@ jobs:
           aws elasticbeanstalk create-application-version \
             --application-name ${{env.applicationName}} \
             --version-label $VERSION_LABEL \
-            --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip
+            --source-bundle S3Bucket=${{env.app_bucket_name}},${{S3Key}}
   
           aws elasticbeanstalk update-environment \
             --application-name ${{env.applicationName}} \
