@@ -6,6 +6,7 @@ resource "aws_security_group" "alb" {
   name        = "${module.naming.resources.sg.name}-alb-sg"
   description = "Allow traffic to and from loadbalancer"
   vpc_id      = data.aws_vpc.adex_poc_default_vpc.id
+  # vpc_id = module.vpc.vpc_id
 
   # HTTP rule
   ingress {
@@ -42,6 +43,7 @@ resource "aws_security_group" "database" {
   name        = "${module.naming.resources.rds.name}-sg"
   description = "Security group for database"
   vpc_id      = data.aws_vpc.adex_poc_default_vpc.id
+  # vpc_id = module.vpc.vpc_id
 
   ingress {
     description     = "TLS from VPC"

@@ -10,7 +10,11 @@ env:
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
     AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }} 
-    AWS_DEFAULT_REGION: us-east-1
+    awsRegion: us-east-1
+    app_bucket_name: ebs-ue1-eb-d-s3 
+    applicationName: ebs-ue1-eb-d-eb-app
+    environmentName: ebs-ue1-eb-d-eb-env
+    terraformDir: ./terraform
 
 jobs:
     terraform_infrastructure:
@@ -25,7 +29,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-          aws-region: us-east-1
+          aws-region: ${{ env.awsRegion }}
 
       - name: Echo Hello World
         run: aws sts get-caller-identity
@@ -40,15 +44,16 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: terraform
+        working-directory: ${{ env.terraformDir }}
 
       - name: Terraform Plan
-        run: terraform plan -var "iam_instance_profile=your-iam-instance-profile" 
-        working-directory: terraform
+        # run: terraform plan -var "iam_instance_profile=your-iam-instance-profile" 
+        run: terraform plan --var-file=prod.tfvars        
+        working-directory: ${{ env.terraformDir }}
 
       - name: Terraform apply
-        run: terraform apply -auto-approve -var "iam_instance_profile=your-iam-instance-profile"
-        working-directory: terraform 
+        run: terraform apply -auto-approve -var-file=prod.tfvars 
+        working-directory: ${{ env.terraformDir }}
 
       # - name: Terraform Destroy  
       #   run: terraform destroy -auto-approve -var "iam_instance_profile=your-iam-instance-profile"
@@ -95,7 +100,7 @@ jobs:
         run: ls -la
 
       - name: Upload to S3
-        run: aws s3 cp app.zip s3://${{ secrets.APP_BUCKET_NAME }}/app.zip
+        run: aws s3 cp app.zip s3://${{env.app_bucket_name}}/app.zip
         working-directory: .
 
 
@@ -112,13 +117,13 @@ jobs:
         run: |
           VERSION_LABEL=$(date +%Y%m%d%H%M%S)
           aws elasticbeanstalk create-application-version \
-            --application-name ${{ secrets.APPLICATION_NAME }} \
+            --application-name ${{env.applicationName}} \
             --version-label $VERSION_LABEL \
-            --source-bundle S3Bucket=${{ secrets.APP_BUCKET_NAME }},S3Key=app.zip
+            --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip
   
           aws elasticbeanstalk update-environment \
-            --application-name ${{ secrets.APPLICATION_NAME }} \
-            --environment-name ${{ secrets.ENVIRONMENT_NAME }} \
+            --application-name ${{env.applicationName}} \
+            --environment-name ${{env.environmentName}} \
             --version-label $VERSION_LABEL
   
     #   # - name: Deploy to Elastic Beanstalk (Example)
