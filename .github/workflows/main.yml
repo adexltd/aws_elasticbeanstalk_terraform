@@ -120,7 +120,7 @@ jobs:
           aws elasticbeanstalk create-application-version \
             --application-name ${{env.applicationName}} \
             --version-label $VERSION_LABEL \
-            --source-bundle S3Bucket=${{env.app_bucket_name}}, ${{env.S3Key}}
+            --source-bundle S3Bucket=${{env.app_bucket_name}},s3key=app.zip
   
           aws elasticbeanstalk update-environment \
             --application-name ${{env.applicationName}} \
