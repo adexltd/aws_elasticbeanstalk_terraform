@@ -121,12 +121,14 @@ jobs:
             --application-name ${{env.applicationName}} \
             --region us-east-1 \
             --version-label $VERSION_LABEL \
-            --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip
+            --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip \
+            --debug
   
           aws elasticbeanstalk update-environment \
             --application-name ${{env.applicationName}} \
             --environment-name ${{env.environmentName}} \
-            --version-label $VERSION_LABEL
+            --version-label $VERSION_LABEL \
+            --debug
   
     #   # - name: Deploy to Elastic Beanstalk (Example)
     #   #   run: |
