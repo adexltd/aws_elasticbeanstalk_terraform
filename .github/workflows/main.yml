@@ -7,10 +7,10 @@ on:
       branches: [ "main" ] 
 
 env:
-    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  
-    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
-    AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }} 
-    AWS_DEFAULT_REGION: us-east-1
+    # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  
+    # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
+    # AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }} 
+    AWS_REGION: us-east-1
     app_bucket_name: ebs-ue1-eb-d-s3 
     s3Key: app.zip
     applicationName: ebs-ue1-eb-d-eb-app
@@ -30,7 +30,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-          aws-region: ${{ env.awsRegion }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Echo Hello World
         run: aws sts get-caller-identity
