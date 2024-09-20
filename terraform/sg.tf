@@ -46,10 +46,12 @@ resource "aws_security_group" "database" {
   # vpc_id = module.vpc.vpc_id
 
   ingress {
-    description     = "TLS from VPC"
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
+    description = "TLS from VPC"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    # cidr_blocks = local.vpc.vpc_cidr
     # security_groups = [aws_security_group.backend_asg.id]
   }
 
