@@ -54,18 +54,6 @@ module "elastic_beanstalk_environment" {
   solution_stack_name = var.solution_stack_name
 
   additional_settings = var.additional_settings
-  #   additional_settings = [
-  #     {
-  #       namespace = "aws:elasticbeanstalk:environment:process:default"
-  #       name      = "StickinessEnabled"
-  #       value     = "false"
-  #     },
-  #     {
-  #       namespace = "aws:elasticbeanstalk:managedactions"
-  #       name      = "ManagedActionsEnabled"
-  #       value     = "false"
-  #     }
-  #   ]
 
   env_vars = var.env_vars
 
