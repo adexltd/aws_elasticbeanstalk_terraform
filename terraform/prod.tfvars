@@ -64,7 +64,7 @@ additional_settings = [
 env_vars = {
   "DB_HOST"         = "localhost"
   "DB_USERNAME"     = "elasticbeanstalk"
-  "DB_PASSWORD"     = ""
+  "DB_PASSWORD"     = "AlXmBgEuzUl3h3qA"
   }
 
 scheduled_actions = [
