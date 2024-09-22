@@ -12,7 +12,7 @@ module "alb" {
   enable_deletion_protection       = local.alb.enable_deletion_protection
   security_groups                  = [aws_security_group.alb.id]
 
-   http_tcp_listeners = [
+  http_tcp_listeners = [
     {
       port               = local.alb.backend_port
       protocol           = local.alb.backend_protocol
@@ -29,11 +29,11 @@ module "alb" {
 
       health_check = {
         enabled             = true
-        path                = "/"
-        protocol            = "HTTP"         # Customize this based on your needs
+        path                = "/health"
+        protocol            = "HTTPS"        # Customize this based on your needs
         matcher             = "200-299"      # HTTP status codes that indicate a healthy response
         interval            = 30             # Time in seconds between health checks
-        timeout             = 5              # Time in seconds to wait for a response before marking as failed
+        timeout             = 15             # Time in seconds to wait for a response before marking as failed
         healthy_threshold   = 3              # Number of successes required to mark the target healthy
         unhealthy_threshold = 2              # Number of failures required to mark the target unhealthy
         port                = "traffic-port" # Port used for health checks, "traffic-port" uses the target group port
