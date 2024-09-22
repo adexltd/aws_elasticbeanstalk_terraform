@@ -149,7 +149,7 @@ jobs:
     #   #   run: |
     #   #     eb init -p node.js your-application-name --region $AWS_DEFAULT_REGION
     #   #     eb create your-environment-name
-    #   #     eb deploy your-environment-name ##
+    #   #     eb deploy your-environment-name 
   
       - name: Notify success
         if: success()
