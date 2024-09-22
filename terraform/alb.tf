@@ -29,7 +29,7 @@ module "alb" {
 
       health_check = {
         enabled             = true
-        path                = "/health"
+        path                = "/"
         protocol            = "HTTPS"        # Customize this based on your needs
         matcher             = "200-299"      # HTTP status codes that indicate a healthy response
         interval            = 30             # Time in seconds between health checks

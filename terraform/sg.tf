@@ -53,6 +53,7 @@ resource "aws_security_group" "database" {
     cidr_blocks = ["0.0.0.0/0"]
     # cidr_blocks = local.vpc.vpc_cidr
     # security_groups = [aws_security_group.backend_asg.id]
+    security_groups = [aws_security_group.eb_instances.id] # Restrict access to EB instances only
   }
 
   egress {
@@ -62,4 +63,27 @@ resource "aws_security_group" "database" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = module.naming.resources.rds.tags
+}
+
+
+
+#################################################
+# EC2
+#################################################
+resource "aws_security_group" "eb_instances" {
+  name        = "eb-instances-sg"
+  description = "Security group for Elastic Beanstalk instances"
+  vpc_id      = data.aws_vpc.adex_poc_default_vpc.id
+
+  # Allow outbound MySQL traffic to the RDS security group
+  egress {
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
+    security_groups = [aws_security_group.database.id]
+  }
+
+  tags = {
+    Name = "EB Instances SG"
+  }
 }
