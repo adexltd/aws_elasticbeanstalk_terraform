@@ -70,20 +70,30 @@ resource "aws_security_group" "database" {
 #################################################
 # EC2
 #################################################
+# Security Group for Elastic Beanstalk Instances
 resource "aws_security_group" "eb_instances" {
-  name        = "eb-instances-sg"
+  name        = "${local.elastic_beanstalk_application.name}-sg"
   description = "Security group for Elastic Beanstalk instances"
   vpc_id      = data.aws_vpc.adex_poc_default_vpc.id
 
-  # Allow outbound MySQL traffic to the RDS security group
-  egress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-    security_groups = [aws_security_group.database.id]
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Allow HTTP traffic
   }
 
-  tags = {
-    Name = "EB Instances SG"
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Allow HTTPS traffic
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]  # Allow all outbound traffic
   }
 }

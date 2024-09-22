@@ -57,6 +57,9 @@ module "elastic_beanstalk_environment" {
 
   env_vars = var.env_vars
 
+  # Attach the security group for EB instances
+  security_group_ids = [aws_security_group.eb_instances.id]
+
   extended_ec2_policy_document = data.aws_iam_policy_document.minimal_s3_permissions.json
   prefer_legacy_ssm_policy     = false
   prefer_legacy_service_policy = false
