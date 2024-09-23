@@ -81,6 +81,7 @@ resource "aws_security_group" "eb_instances" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]  # Allow HTTP traffic
+    security_groups = [aws_security_group.alb.id]
   }
 
   ingress {
