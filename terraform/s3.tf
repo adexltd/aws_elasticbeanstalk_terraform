@@ -18,4 +18,4 @@ module "s3_bucket" {
 
   tags = module.naming.resources.s3.tags
 
-}       
+}

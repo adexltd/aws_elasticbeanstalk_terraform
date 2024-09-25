@@ -62,12 +62,12 @@ additional_settings = [
 ]
 
 env_vars = {
-  "DB_HOST"         = "ebs-ue1-eb-d-rds.cmuokqciitb8.us-east-1.rds.amazonaws.com"
-  "DB_PORT"         = "3306"
-  "DB_USERNAME"     = "elasticbeanstalk"
-  "DB_PASSWORD"     = "AlXmBgEuzUl3h3qA"
-  "DB_NAME"         = "elasticbeanstalk"
-  }
+  "DB_HOST"     = "ebs-ue1-eb-d-rds.cmuokqciitb8.us-east-1.rds.amazonaws.com"
+  "DB_PORT"     = "3306"
+  "DB_USERNAME" = "elasticbeanstalk"
+  "DB_PASSWORD" = "AlXmBgEuzUl3h3qA"
+  "DB_NAME"     = "elasticbeanstalk"
+}
 
 scheduled_actions = [
   {

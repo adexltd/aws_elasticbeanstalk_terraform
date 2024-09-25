@@ -10,6 +10,6 @@ module "secrets_manager" {
     password = module.rds.db_instance_password
   })
 
-#   tags = module.naming.resources.secrets_manager.tags
+  #   tags = module.naming.resources.secrets_manager.tags
 
 }
