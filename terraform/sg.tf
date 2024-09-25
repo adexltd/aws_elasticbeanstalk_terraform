@@ -25,10 +25,11 @@ resource "aws_security_group" "alb" {
   }
 
   egress {
-    from_port       = 8080
-    to_port         = 8080
-    protocol        = "tcp"
-    security_groups = [aws_security_group.eb_instances.id] # Allow traffic to EB instances on port 8080
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    # security_groups = [aws_security_group.eb_instances.id] # Allow traffic to EB instances on port 8080
   }
 
   # Outbound rule to allow all traffic
