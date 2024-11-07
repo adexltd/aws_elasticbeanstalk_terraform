@@ -52,13 +52,13 @@ jobs:
         run: terraform plan --var-file=prod.tfvars        
         working-directory: ${{ env.terraformDir }}
 
-      - name: Terraform apply
-        run: terraform apply -auto-approve -var-file=prod.tfvars 
-        working-directory: ${{ env.terraformDir }}
+      # - name: Terraform apply
+      #   run: terraform apply -auto-approve -var-file=prod.tfvars 
+      #   working-directory: ${{ env.terraformDir }}
 
-      # - name: Terraform Destroy  
-      #   run: terraform destroy -auto-approve -var "iam_instance_profile=your-iam-instance-profile"
-      #   working-directory: terraform
+      - name: Terraform Destroy  
+        run: terraform destroy -auto-approve -var "iam_instance_profile=your-iam-instance-profile"
+        working-directory: ${{ env.terraformDir }}
 
 
 
