@@ -44,7 +44,7 @@ locals {
 
   ### secrets_manager
   secrets_manager = {
-    name_prefix           = "${var.naming_environment}-elasticbeanstalk-rds-secrets"
+    name_prefix           = "${var.naming_environment}-eb-rds-secrets"
     description           = "Secrets Manager secret for RDS database"
     region                = var.region
     enable_rotation       = false

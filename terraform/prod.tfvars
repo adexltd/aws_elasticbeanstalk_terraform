@@ -13,11 +13,11 @@ load_balancer_type               = "application"
 enable_cross_zone_load_balancing = true
 enable_deletion_protection       = false
 # private_subnets                  = ["subnet-094222bc07bb63e74", "subnet-0a6f15fc861987834"]
-backend_port                     = 80
-backend_protocol                 = "HTTP"
-target_group_index               = 0
-target_type                      = "instance"
-create_attachment                = false
+backend_port       = 80
+backend_protocol   = "HTTP"
+target_group_index = 0
+target_type        = "instance"
+create_attachment  = false
 
 
 ## Variables for Elastic Beanstalk Environment
