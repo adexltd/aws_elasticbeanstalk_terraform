@@ -2,10 +2,11 @@ module "alb" {
 
   source = "./modules/terraform-aws-elb-module"
 
-  name   = local.alb.alb_name
-  vpc_id = data.aws_vpc.adex_poc_default_vpc.id
+  name = local.alb.alb_name
+  # vpc_id = data.aws_vpc.adex_poc_default_vpc.id
+  vpc_id = module.vpc.vpc_id
 
-  subnets                          = local.alb.subnets
+  subnets                          = local.alb.public_subnets
   internal                         = local.alb.internal
   load_balancer_type               = local.alb.load_balancer_type
   enable_cross_zone_load_balancing = local.alb.enable_cross_zone_load_balancing

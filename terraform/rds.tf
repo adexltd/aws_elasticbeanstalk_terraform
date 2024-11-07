@@ -18,7 +18,7 @@ module "rds" {
   multi_az                     = local.rds.multi_az
   skip_final_snapshot          = local.rds.skip_final_snapshot
   deletion_protection          = false
-  db_subnet_group_name         = aws_db_subnet_group.ebs_db_subnet.id
+  db_subnet_group_name         = module.vpc.database_subnet_group
   vpc_security_group_ids       = [aws_security_group.database.id]
   apply_immediately            = local.rds.apply_immediately
   create_random_password       = local.rds.create_random_password
@@ -28,12 +28,3 @@ module "rds" {
 
 }
 
-
-resource "aws_db_subnet_group" "ebs_db_subnet" {
-  name       = "main"
-  subnet_ids = ["subnet-094222bc07bb63e74", "subnet-0a6f15fc861987834   "]
-
-  tags = {
-    Name = "My DB subnet group"
-  }
-}

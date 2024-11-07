@@ -27,23 +27,23 @@ variable "project" {
 # variables for VPC
 #################################################################################
 
-# variable "vpc_cidr" {
-#   description = "cidr of vpc"
-# }
+variable "vpc_cidr" {
+  description = "cidr of vpc"
+}
 
 # variable "vpc_name" {
 #   description = "name of vpc"
 # }
 
-# variable "number_of_azs" {
-#   description = "number of availability zones"
-#   type        = number
-# }
-
-variable "vpc_id" {
-  description = "The default VPC"
-  # default     = "vpc-03d964f7cd3fa2c74"
+variable "number_of_azs" {
+  description = "number of availability zones"
+  type        = number
 }
+
+# variable "vpc_id" {
+#   description = "The default VPC"
+#   # default     = "vpc-03d964f7cd3fa2c74"
+# }
 
 ################################################################################
 # variables for elastic beanstalk environment
@@ -175,9 +175,9 @@ variable "updating_max_batch" {
   description = "Maximum number of instances to update at once"
 }
 
-variable "public_subnets" {
-  description = "loadbalancer subnets"
-}
+# variable "public_subnets" {
+#   description = "loadbalancer subnets"
+# }
 
 variable "additional_settings" {
   type = list(object({
@@ -211,10 +211,10 @@ variable "scheduled_actions" {
   description = "Define a list of scheduled actions"
 }
 
-variable "availability_zones" {
-  type        = list(string)
-  description = "List of availability zones"
-}
+# variable "availability_zones" {
+#   type        = list(string)
+#   description = "List of availability zones"
+# }
 
 #################################################################################
 # Variables for ALB
@@ -240,10 +240,10 @@ variable "enable_deletion_protection" {
   type        = bool
 }
 
-variable "private_subnets" {
-  description = "Subnets ids for alb"
-  # type        = string
-}
+# variable "private_subnets" {
+#   description = "Subnets ids for alb"
+#   # type        = string
+# }
 
 variable "backend_port" {
   description = "value of the backend port"

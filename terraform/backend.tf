@@ -1,9 +1,10 @@
 terraform {
   backend "s3" {
     region         = "us-east-1"
-    key            = "beanstalk/beanstalk_project.tfstate"
-    bucket         = "beanstalk-development-ebs-ue1-eb-d-s3"
-    dynamodb_table = "beanstalk-development-ebs-ue1-eb-d-s3"
+    key            = "675738512763/beanstalk_project.tfstate"
+    bucket         = "adex-terraform-state"
+    dynamodb_table = "adex-terraform-state"
+    acl            = "bucket-owner-full-control"
     encrypt        = true
   }
 }
