@@ -260,6 +260,16 @@ variable "target_group_index" {
   type        = number
 }
 
+variable "target_port" {
+  description = "value of the backend port"
+  type        = number
+}
+
+variable "target_protocol" {
+  description = "value of the backend protocol"
+  type        = string
+}
+
 variable "target_type" {
   description = "target type for load balancer"
   type        = string

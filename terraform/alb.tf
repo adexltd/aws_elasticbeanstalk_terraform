@@ -23,10 +23,10 @@ module "alb" {
 
   target_groups = [
     {
-      name             = local.alb.target_group_name
-      backend_protocol = local.alb.backend_protocol
-      backend_port     = local.alb.backend_port
-      target_type      = local.alb.target_type
+      name            = local.alb.target_group_name
+      target_protocol = local.alb.backend_protocol
+      target_port     = local.alb.backend_port
+      target_type     = local.alb.target_type
 
       health_check = {
         enabled             = true

@@ -24,6 +24,8 @@ locals {
     backend_port                     = var.backend_port
     backend_protocol                 = var.backend_protocol
     target_group_name                = "${var.environment}-eb-alb"
+    target_port                      = var.target_port
+    target_protocol                  = var.target_protocol
     target_group_index               = var.target_group_index
     target_type                      = var.target_type
     create_attachment                = var.create_attachment

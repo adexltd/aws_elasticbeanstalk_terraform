@@ -16,6 +16,8 @@ enable_deletion_protection       = false
 backend_port       = 8080
 backend_protocol   = "HTTP"
 target_group_index = 0
+target_port        = 80
+target_protocol    = "HTTP"
 target_type        = "instance"
 create_attachment  = false
 
