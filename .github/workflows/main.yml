@@ -57,7 +57,7 @@ jobs:
       #   working-directory: ${{ env.terraformDir }}
 
       - name: Terraform Destroy  
-        run: terraform destroy -auto-approve -var "iam_instance_profile=your-iam-instance-profile"
+        run: terraform destroy -auto-approve -var-file=prod.tfvars 
         working-directory: ${{ env.terraformDir }}
 
 
