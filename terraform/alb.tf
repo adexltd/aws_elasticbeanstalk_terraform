@@ -15,18 +15,18 @@ module "alb" {
 
   http_tcp_listeners = [
     {
-      port               = local.alb.backend_port
-      protocol           = local.alb.backend_protocol
+      port               = local.alb.target_port
+      protocol           = local.alb.target_protocol
       target_group_index = local.alb.target_group_index
     }
   ]
 
   target_groups = [
     {
-      name            = local.alb.target_group_name
-      target_protocol = local.alb.backend_protocol
-      target_port     = local.alb.backend_port
-      target_type     = local.alb.target_type
+      name             = local.alb.target_group_name
+      backend_protocol = local.alb.backend_protocol
+      backend_port     = local.alb.backend_port
+      target_type      = local.alb.target_type
 
       health_check = {
         enabled             = true
