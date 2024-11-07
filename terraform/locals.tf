@@ -46,7 +46,7 @@ locals {
 
   ### secrets_manager
   secrets_manager = {
-    name_prefix           = "${var.naming_environment}-eb-rds-secrets"
+    name_prefix           = "${var.naming_environment}-eb-rds-secretss"
     description           = "Secrets Manager secret for RDS database"
     region                = var.region
     enable_rotation       = false
