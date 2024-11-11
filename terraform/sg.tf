@@ -66,7 +66,7 @@ resource "aws_security_group" "database" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    # cidr_blocks = ["0.0.0.0/0"]
     # cidr_blocks = local.vpc.vpc_cidr
     # security_groups = [aws_security_group.backend_asg.id]
     security_groups = [aws_security_group.eb_instances.id] # Restrict access to EB instances only
