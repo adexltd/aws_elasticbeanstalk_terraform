@@ -6,7 +6,7 @@ const db = require('./connection'); // Import the MySQL connection
 
 const app = express();
 // const port = 8080;
-const port = process.env.PORT || 8080; // Use dynamic port if provided
+const port = process.env.PORT || 80; // Use dynamic port if provided
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));

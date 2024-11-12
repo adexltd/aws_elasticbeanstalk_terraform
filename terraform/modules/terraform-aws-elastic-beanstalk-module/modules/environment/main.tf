@@ -270,6 +270,7 @@ data "aws_iam_policy_document" "default" {
       "codebuild:DeleteProject",
       "codebuild:BatchGetBuilds",
       "codebuild:StartBuild",
+      "secretsmanager:GetSecretValue",
     ]
 
     resources = ["*"]
