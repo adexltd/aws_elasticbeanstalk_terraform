@@ -102,5 +102,5 @@ create_db_option_group       = false
 multi_az                     = false
 skip_final_snapshot          = true
 performance_insights_enabled = false
-db_name                      = "elasticbeanstalk"
+db_name                      = "eb"
 username                     = "elasticbeanstalk"
