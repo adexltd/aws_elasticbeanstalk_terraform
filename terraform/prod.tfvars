@@ -71,18 +71,18 @@ env_vars = {
   "DB_NAME"     = "elasticbeanstalk"
 }
 
-scheduled_actions = [
-  {
-    name            = "Refreshinstances"
-    minsize         = "1"
-    maxsize         = "2"
-    desiredcapacity = "2"
-    starttime       = "2024-05-14T07:00:00Z"
-    endtime         = "2025-01-12T07:00:00Z"
-    recurrence      = "*/20 * * * *"
-    suspend         = false
-  }
-]
+# scheduled_actions = [
+#   {
+#     name            = "Refreshinstances"
+#     minsize         = "1"
+#     maxsize         = "2"
+#     desiredcapacity = "2"
+#     starttime       = "2024-05-14T07:00:00Z"
+#     endtime         = "2025-01-12T07:00:00Z"
+#     recurrence      = "*/20 * * * *"
+#     suspend         = false
+#   }
+# ]
 
 
 # Variable for Secrets managers

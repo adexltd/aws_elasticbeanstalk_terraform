@@ -25,20 +25,20 @@ module "alb" {
     {
       name             = local.alb.target_group_name
       backend_protocol = local.alb.backend_protocol
-      backend_port     = local.alb.backend_port
+      backend_port     = local.alb.target_port
       target_type      = local.alb.target_type
 
       health_check = {
         enabled             = true
         path                = "/health"
-        protocol            = "HTTP"    # Customize this based on your needs
-        matcher             = "200-402" # HTTP status codes that indicate a healthy response
-        interval            = 60        # Time in seconds between health checks
-        timeout             = 50        # Time in seconds to wait for a response before marking as failed
-        healthy_threshold   = 3         # Number of successes required to mark the target healthy
-        unhealthy_threshold = 2         # Number of failures required to mark the target unhealthy
-        # port                = "traffic-port" # Port used for health checks, "traffic-port" uses the target group port
-        port = "8080" # Update to 8080
+        protocol            = "HTTP"         # Customize this based on your needs
+        matcher             = "200-402"      # HTTP status codes that indicate a healthy response
+        interval            = 60             # Time in seconds between health checks
+        timeout             = 50             # Time in seconds to wait for a response before marking as failed
+        healthy_threshold   = 3              # Number of successes required to mark the target healthy
+        unhealthy_threshold = 2              # Number of failures required to mark the target unhealthy
+        port                = "traffic-port" # Port used for health checks, "traffic-port" uses the target group port
+        # port = "8080" # Update to 8080
 
       }
 
