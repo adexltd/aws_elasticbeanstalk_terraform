@@ -62,101 +62,101 @@ jobs:
 
 
 
-    build-and-test:
-      runs-on: ubuntu-latest
-      needs: terraform_infrastructure
+    # build-and-test:
+    #   runs-on: ubuntu-latest
+    #   needs: terraform_infrastructure
 
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    #   steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v3
 
-      - name: Configure aws credentials
-        uses: aws-action/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-          aws-region: ${{ env.AWS_REGION }}
+    #   - name: Configure aws credentials
+    #     uses: aws-action/configure-aws-credentials@v1
+    #     with:
+    #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #       aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+    #       aws-region: ${{ env.AWS_REGION }}
 
-      - name: List files
-        run: ls -la
+    #   - name: List files
+    #     run: ls -la
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+    #   - name: Set up Node.js
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: '18'
 
-      - name: npm version
-        run: npm --version
+    #   - name: npm version
+    #     run: npm --version
 
-      - name: Install dependencies
-        run: sudo npm install
-        working-directory: ./my_application
+    #   - name: Install dependencies
+    #     run: sudo npm install
+    #     working-directory: ./my_application
 
-      - name: Build the application
-        run: sudo npm run build
-        working-directory: ./my_application
+    #   - name: Build the application
+    #     run: sudo npm run build
+    #     working-directory: ./my_application
 
-      - name: List files before zip
-        run: ls -la ./my_application
+    #   - name: List files before zip
+    #     run: ls -la ./my_application
 
-      - name: Zip application
-        run: |
-          cd my_application
-          zip -r ../app.zip .
+    #   - name: Zip application
+    #     run: |
+    #       cd my_application
+    #       zip -r ../app.zip .
 
-      - name: List files after zip
-        run: ls -la
+    #   - name: List files after zip
+    #     run: ls -la
 
-      - name: Upload to S3
-        run: aws s3 cp app.zip s3://${{env.app_bucket_name}}/app.zip --region us-east-1
-        working-directory: .
+    #   - name: Upload to S3
+    #     run: aws s3 cp app.zip s3://${{env.app_bucket_name}}/app.zip --region us-east-1
+    #     working-directory: .
 
 
-    deploy:
-      runs-on: ubuntu-latest
-      needs: build-and-test
+    # deploy:
+    #   runs-on: ubuntu-latest
+    #   needs: build-and-test
   
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    #   steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v3
 
-      - name: Configure aws credentials
-        uses: aws-action/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-          aws-region: ${{ env.AWS_REGION }}
+    #   - name: Configure aws credentials
+    #     uses: aws-action/configure-aws-credentials@v1
+    #     with:
+    #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #       aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+    #       aws-region: ${{ env.AWS_REGION }}
 
-      - name: Deploy to Elastic Beanstalk
-        run: |
-          VERSION_LABEL=$(date +%Y%m%d%H%M%S)
-          aws elasticbeanstalk create-application-version \
-            --application-name ${{env.applicationName}} \
-            --region us-east-1 \
-            --version-label $VERSION_LABEL \
-            --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip \
-            --debug
+    #   - name: Deploy to Elastic Beanstalk
+    #     run: |
+    #       VERSION_LABEL=$(date +%Y%m%d%H%M%S)
+    #       aws elasticbeanstalk create-application-version \
+    #         --application-name ${{env.applicationName}} \
+    #         --region us-east-1 \
+    #         --version-label $VERSION_LABEL \
+    #         --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip \
+    #         --debug
   
-          aws elasticbeanstalk update-environment \
-            --application-name ${{env.applicationName}} \
-            --environment-name ${{env.environmentName}} \
-            --version-label $VERSION_LABEL \
-            --debug
+    #       aws elasticbeanstalk update-environment \
+    #         --application-name ${{env.applicationName}} \
+    #         --environment-name ${{env.environmentName}} \
+    #         --version-label $VERSION_LABEL \
+    #         --debug
   
-    #   # - name: Deploy to Elastic Beanstalk (Example)
-    #   #   run: |
-    #   #     eb init -p node.js your-application-name --region $AWS_DEFAULT_REGION
-    #   #     eb create your-environment-name
-    #   #     eb deploy your-environment-name 
+    # #   # - name: Deploy to Elastic Beanstalk (Example)
+    # #   #   run: |
+    # #   #     eb init -p node.js your-application-name --region $AWS_DEFAULT_REGION
+    # #   #     eb create your-environment-name
+    # #   #     eb deploy your-environment-name 
   
-      - name: Notify success
-        if: success()
-        run: echo "Deployment successful!!"
+    #   - name: Notify success
+    #     if: success()
+    #     run: echo "Deployment successful!!"
 
 
 
-    #     # 02_start_application:
-    #     #   command: "npm start"
-    #     #   cwd: "/var/app/staging"
+    # #     # 02_start_application:
+    # #     #   command: "npm start"
+    # #     #   cwd: "/var/app/staging"
