@@ -68,7 +68,7 @@ env_vars = {
   "DB_PORT"     = "3306"
   "DB_USERNAME" = "elasticbeanstalk"
   "DB_PASSWORD" = "L64w19vAGVYBOSCe"
-  "DB_NAME"     = "elasticbeanstalk"
+  "DB_NAME"     = "eb"
 }
 
 # scheduled_actions = [
