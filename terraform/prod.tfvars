@@ -63,13 +63,13 @@ additional_settings = [
   }
 ]
 
-env_vars = {
-  "DB_HOST"     = "ebs-as1-eb-d-rds.cuz4tzfo0b5i.ap-south-1.rds.amazonaws.com"
-  "DB_PORT"     = "3306"
-  "DB_USERNAME" = "elasticbeanstalk"
-  "DB_PASSWORD" = "L64w19vAGVYBOSCe"
-  "DB_NAME"     = "eb"
-}
+# env_vars = {
+#   "DB_HOST"     = "ebs-as1-eb-d-rds.cuz4tzfo0b5i.ap-south-1.rds.amazonaws.com"
+#   "DB_PORT"     = "3306"
+#   "DB_USERNAME" = "elasticbeanstalk"
+#   "DB_PASSWORD" = "L64w19vAGVYBOSCe"
+#   "DB_NAME"     = "eb"
+# }
 
 # scheduled_actions = [
 #   {
@@ -85,9 +85,9 @@ env_vars = {
 # ]
 
 
-# Variable for Secrets managers
-enable_rotation         = false
-recovery_window_in_days = 0
+# # Variable for Secrets managers
+# enable_rotation         = false
+# recovery_window_in_days = 0
 
 
 ## Variable for RDS

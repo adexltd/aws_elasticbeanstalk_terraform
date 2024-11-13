@@ -44,14 +44,14 @@ locals {
   }
 
 
-  ### secrets_manager
-  secrets_manager = {
-    name_prefix           = "${var.naming_environment}-eb-rdss-secretsss"
-    description           = "Secrets Manager secret for RDS database"
-    region                = var.region
-    enable_rotation       = false
-    ignore_secret_changes = true
-  }
+  # ### secrets_manager
+  # secrets_manager = {
+  #   name_prefix           = "${var.naming_environment}-eb-rdss-secretsss"
+  #   description           = "Secrets Manager secret for RDS database"
+  #   region                = var.region
+  #   enable_rotation       = false
+  #   ignore_secret_changes = true
+  # }
 
 
   #### RDS 
