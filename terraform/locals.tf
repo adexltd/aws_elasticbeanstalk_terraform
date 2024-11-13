@@ -55,25 +55,25 @@ locals {
 
 
   #### RDS 
-  rds = {
-    identifier                   = module.naming.resources.rds.name
-    engine                       = "mysql"
-    engine_version               = var.engine_version
-    family                       = var.family
-    major_engine_version         = var.major_engine_version
-    instance_class               = var.instance_class
-    allocated_storage            = var.allocated_storage
-    port                         = var.port
-    create_db_parameter_group    = var.create_db_parameter_group
-    create_db_option_group       = var.create_db_option_group
-    multi_az                     = var.multi_az
-    skip_final_snapshot          = var.skip_final_snapshot
-    db_name                      = var.db_name
-    username                     = var.username
-    apply_immediately            = true
-    create_random_password       = true
-    performance_insights_enabled = var.performance_insights_enabled
-  }
+  # rds = {
+  #   identifier                   = module.naming.resources.rds.name
+  #   engine                       = "mysql"
+  #   engine_version               = var.engine_version
+  #   family                       = var.family
+  #   major_engine_version         = var.major_engine_version
+  #   instance_class               = var.instance_class
+  #   allocated_storage            = var.allocated_storage
+  #   port                         = var.port
+  #   create_db_parameter_group    = var.create_db_parameter_group
+  #   create_db_option_group       = var.create_db_option_group
+  #   multi_az                     = var.multi_az
+  #   skip_final_snapshot          = var.skip_final_snapshot
+  #   db_name                      = var.db_name
+  #   username                     = var.username
+  #   apply_immediately            = true
+  #   create_random_password       = true
+  #   performance_insights_enabled = var.performance_insights_enabled
+  # }
 
 
   ### S3
