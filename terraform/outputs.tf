@@ -7,5 +7,5 @@ output "latest_ubuntu_ami_id" {
 # }
 
 output "alb_arn" {
-  value = module.alb.lb_arn
+  value = module.alb.alb_arn
 }

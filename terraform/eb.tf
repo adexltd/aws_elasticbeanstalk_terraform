@@ -21,7 +21,7 @@ module "elastic_beanstalk_environment" {
   environment_type                   = var.environment_type
   loadbalancer_type                  = var.loadbalancer_type
   loadbalancer_is_shared             = var.loadbalancer_is_shared
-  shared_loadbalancer_arn            = module.alb.lb_arn
+  shared_loadbalancer_arn            = module.alb.alb_arn
   healthcheck_url                    = "/"
 
   tier          = var.tier
