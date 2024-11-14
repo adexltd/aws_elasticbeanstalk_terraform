@@ -85,22 +85,22 @@ additional_settings = [
 # ]
 
 
-# Variable for Secrets managers
-enable_rotation         = false
-recovery_window_in_days = 0
+# # Variable for Secrets managers
+# enable_rotation         = false
+# recovery_window_in_days = 0
 
 
-# Variable for RDS
-engine_version               = "8.0.39"
-family                       = "mysql8.0"
-major_engine_version         = "8.0"
-instance_class               = "db.t3.micro"
-allocated_storage            = 20
-port                         = "3306"
-create_db_parameter_group    = false
-create_db_option_group       = false
-multi_az                     = false
-skip_final_snapshot          = true
-performance_insights_enabled = false
-db_name                      = "eb"
-username                     = "elasticbeanstalk"
+# # Variable for RDS
+# engine_version               = "8.0.39"
+# family                       = "mysql8.0"
+# major_engine_version         = "8.0"
+# instance_class               = "db.t3.micro"
+# allocated_storage            = 20
+# port                         = "3306"
+# create_db_parameter_group    = false
+# create_db_option_group       = false
+# multi_az                     = false
+# skip_final_snapshot          = true
+# performance_insights_enabled = false
+# db_name                      = "eb"
+# username                     = "elasticbeanstalk"

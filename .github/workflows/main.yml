@@ -52,13 +52,13 @@ jobs:
         run: terraform plan --var-file=prod.tfvars -lock=false 
         working-directory: ${{ env.terraformDir }} 
 
-      # - name: Terraform apply
-      #   run: terraform apply -auto-approve -var-file=prod.tfvars -lock=false
-      #   working-directory: ${{ env.terraformDir }}
-
-      - name: Terraform Destroy  
-        run: terraform destroy -auto-approve -var-file=prod.tfvars -lock=false
+      - name: Terraform apply
+        run: terraform apply -auto-approve -var-file=prod.tfvars -lock=false
         working-directory: ${{ env.terraformDir }}
+
+      # - name: Terraform Destroy  
+      #   run: terraform destroy -auto-approve -var-file=prod.tfvars -lock=false
+      #   working-directory: ${{ env.terraformDir }}
 
 
 

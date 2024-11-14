@@ -280,87 +280,87 @@ variable "scheduled_actions" {
 #   type        = bool
 # }
 
-################################################################################
-# variables for secrets manager
-################################################################################
-variable "enable_rotation" {
-  description = "Determines whether secret rotation is enabled"
-  type        = bool
-  default     = true
-}
+# ################################################################################
+# # variables for secrets manager
+# ################################################################################
+# variable "enable_rotation" {
+#   description = "Determines whether secret rotation is enabled"
+#   type        = bool
+#   default     = true
+# }
 
-variable "recovery_window_in_days" {
-  description = "Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`"
-  type        = number
-  default     = null
-}
+# variable "recovery_window_in_days" {
+#   description = "Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`"
+#   type        = number
+#   default     = null
+# }
 
 
-################################################################################
-# Variables for RDS
-################################################################################
+# ################################################################################
+# # Variables for RDS
+# ################################################################################
 
-variable "engine_version" {
-  description = "Database engine version"
-  type        = string
-}
+# variable "engine_version" {
+#   description = "Database engine version"
+#   type        = string
+# }
 
-variable "family" {
-  description = "Database family"
-  type        = string
-}
+# variable "family" {
+#   description = "Database family"
+#   type        = string
+# }
 
-variable "major_engine_version" {
-  description = "Database major engine version"
-  type        = string
-}
+# variable "major_engine_version" {
+#   description = "Database major engine version"
+#   type        = string
+# }
 
-variable "instance_class" {
-  description = "Database instance class"
-  type        = string
-}
+# variable "instance_class" {
+#   description = "Database instance class"
+#   type        = string
+# }
 
-variable "allocated_storage" {
-  description = "Database allocated storage"
-  type        = number
-}
+# variable "allocated_storage" {
+#   description = "Database allocated storage"
+#   type        = number
+# }
 
-variable "port" {
-  description = "Database port"
-  type        = string
-}
+# variable "port" {
+#   description = "Database port"
+#   type        = string
+# }
 
-variable "create_db_parameter_group" {
-  description = "Database parameter group"
-  type        = bool
-}
+# variable "create_db_parameter_group" {
+#   description = "Database parameter group"
+#   type        = bool
+# }
 
-variable "create_db_option_group" {
-  description = "Database option group"
-  type        = bool
-}
+# variable "create_db_option_group" {
+#   description = "Database option group"
+#   type        = bool
+# }
 
-variable "multi_az" {
-  description = "Database multi az support"
-  type        = bool
-}
+# variable "multi_az" {
+#   description = "Database multi az support"
+#   type        = bool
+# }
 
-variable "skip_final_snapshot" {
-  description = "Database skip final snapshot"
-  type        = bool
-}
+# variable "skip_final_snapshot" {
+#   description = "Database skip final snapshot"
+#   type        = bool
+# }
 
-variable "performance_insights_enabled" {
-  description = "t3.micro doesnot support enabling"
-  type        = bool
-}
+# variable "performance_insights_enabled" {
+#   description = "t3.micro doesnot support enabling"
+#   type        = bool
+# }
 
-variable "db_name" {
-  description = "Database name"
-  type        = string
-}
+# variable "db_name" {
+#   description = "Database name"
+#   type        = string
+# }
 
-variable "username" {
-  description = "Username for the master DB user"
-  type        = string
-}
+# variable "username" {
+#   description = "Username for the master DB user"
+#   type        = string
+# }
