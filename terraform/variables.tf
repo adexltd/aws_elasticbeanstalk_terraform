@@ -220,65 +220,65 @@ variable "scheduled_actions" {
 # Variables for ALB
 #################################################################################
 
-variable "internal" {
-  description = "Determines whether the ALB is internal or internet facing"
-  type        = bool
-}
-
-variable "load_balancer_type" {
-  description = "Type of load balancer"
-  type        = string
-}
-
-variable "enable_cross_zone_load_balancing" {
-  description = "Determines whether cross zone load balancing is enabled"
-  type        = bool
-}
-
-variable "enable_deletion_protection" {
-  description = "Determines whether deletion protection is enabled"
-  type        = bool
-}
-
-# variable "private_subnets" {
-#   description = "Subnets ids for alb"
-#   # type        = string
+# variable "internal" {
+#   description = "Determines whether the ALB is internal or internet facing"
+#   type        = bool
 # }
 
-variable "backend_port" {
-  description = "value of the backend port"
-  type        = number
-}
+# variable "load_balancer_type" {
+#   description = "Type of load balancer"
+#   type        = string
+# }
 
-variable "backend_protocol" {
-  description = "value of the backend protocol"
-  type        = string
-}
+# variable "enable_cross_zone_load_balancing" {
+#   description = "Determines whether cross zone load balancing is enabled"
+#   type        = bool
+# }
 
-variable "target_group_index" {
-  description = "value of the target group index"
-  type        = number
-}
+# variable "enable_deletion_protection" {
+#   description = "Determines whether deletion protection is enabled"
+#   type        = bool
+# }
 
-variable "target_port" {
-  description = "value of the backend port"
-  type        = number
-}
+# # variable "private_subnets" {
+# #   description = "Subnets ids for alb"
+# #   # type        = string
+# # }
 
-variable "target_protocol" {
-  description = "value of the backend protocol"
-  type        = string
-}
+# variable "backend_port" {
+#   description = "value of the backend port"
+#   type        = number
+# }
 
-variable "target_type" {
-  description = "target type for load balancer"
-  type        = string
-}
+# variable "backend_protocol" {
+#   description = "value of the backend protocol"
+#   type        = string
+# }
 
-variable "create_attachment" {
-  description = "create_attachment for target"
-  type        = bool
-}
+# variable "target_group_index" {
+#   description = "value of the target group index"
+#   type        = number
+# }
+
+# variable "target_port" {
+#   description = "value of the backend port"
+#   type        = number
+# }
+
+# variable "target_protocol" {
+#   description = "value of the backend protocol"
+#   type        = string
+# }
+
+# variable "target_type" {
+#   description = "target type for load balancer"
+#   type        = string
+# }
+
+# variable "create_attachment" {
+#   description = "create_attachment for target"
+#   type        = bool
+# }
 
 ################################################################################
 # variables for secrets manager

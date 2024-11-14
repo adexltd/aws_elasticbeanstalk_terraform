@@ -11,25 +11,25 @@ locals {
   }
 
   # Application load balancer
-  alb = {
-    alb_name = module.naming.resources.alb.name
-    # vpc_id   = data.aws_vpc.adex_poc_default_vpc
-    vpc_id         = module.vpc.vpc_id
-    public_subnets = [module.vpc.private_subnets[0], module.vpc.private_subnets[1]]
-    # subnets                          = var.private_subnets
-    internal                         = var.internal
-    load_balancer_type               = var.load_balancer_type
-    enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
-    enable_deletion_protection       = var.enable_deletion_protection
-    backend_port                     = var.backend_port
-    backend_protocol                 = var.backend_protocol
-    target_group_name                = "${var.environment}-eb-alb"
-    target_port                      = var.target_port
-    target_protocol                  = var.target_protocol
-    target_group_index               = var.target_group_index
-    target_type                      = var.target_type
-    create_attachment                = var.create_attachment
-  }
+  # alb = {
+  #   alb_name = module.naming.resources.alb.name
+  #   # vpc_id   = data.aws_vpc.adex_poc_default_vpc
+  #   vpc_id         = module.vpc.vpc_id
+  #   public_subnets = [module.vpc.private_subnets[0], module.vpc.private_subnets[1]]
+  #   # subnets                          = var.private_subnets
+  #   internal                         = var.internal
+  #   load_balancer_type               = var.load_balancer_type
+  #   enable_cross_zone_load_balancing = var.enable_cross_zone_load_balancing
+  #   enable_deletion_protection       = var.enable_deletion_protection
+  #   backend_port                     = var.backend_port
+  #   backend_protocol                 = var.backend_protocol
+  #   target_group_name                = "${var.environment}-eb-alb"
+  #   target_port                      = var.target_port
+  #   target_protocol                  = var.target_protocol
+  #   target_group_index               = var.target_group_index
+  #   target_type                      = var.target_type
+  #   create_attachment                = var.create_attachment
+  # }
 
   # elastic_beanstalk_application
   elastic_beanstalk_application = {
