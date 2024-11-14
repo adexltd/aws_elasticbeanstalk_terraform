@@ -41,8 +41,7 @@ module "elastic_beanstalk_environment" {
   autoscale_upper_bound     = var.autoscale_upper_bound
   autoscale_upper_increment = var.autoscale_upper_increment
 
-  vpc_id = module.vpc.vpc_id
-  # vpc_id               = data.aws_vpc.adex_poc_default_vpc.id
+  vpc_id               = module.vpc.vpc_id
   loadbalancer_subnets = module.vpc.public_subnets
   application_subnets  = module.vpc.private_subnets
 
@@ -66,7 +65,5 @@ module "elastic_beanstalk_environment" {
   scheduled_actions            = var.scheduled_actions
 
   depends_on = [module.alb]
-
-  #   tags = module.naming.resources.prefix.tags
 
 }

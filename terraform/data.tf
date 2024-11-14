@@ -14,26 +14,6 @@ data "aws_ami" "ami_id" {
   }
 }
 
-
-# data "aws_vpc" "adex_poc_default_vpc" {
-#   id = var.vpc_id
-# }
-
-# data "aws_subnets" "default" {
-#   vpc_id = data.aws_vpc.adex_poc_default_vpc.id
-# }
-# data "aws_subnets" "subnets" {
-#   filter {
-#     name   = "vpc-id"
-#     values = [var.vpc_id]
-#   }
-# }
-
-# data "aws_subnet" "subnet" {
-#   for_each = toset(data.aws_subnets.subnets.ids)
-#   id       = each.value
-# }
-
 data "aws_iam_policy_document" "minimal_s3_permissions" {
 
   statement {

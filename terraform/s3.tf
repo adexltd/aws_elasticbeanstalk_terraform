@@ -8,8 +8,8 @@ module "s3_bucket" {
   control_object_ownership = true
   force_destroy            = true
   object_ownership         = "BucketOwnerPreferred"
-  # attach_policy            = true
-  # policy                   = data.aws_iam_policy_document.s3_bucket_policy.json
+  attach_policy            = true
+  policy                   = data.aws_iam_policy_document.s3_bucket_policy.json
 
 
   versioning = {
