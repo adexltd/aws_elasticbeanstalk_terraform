@@ -93,9 +93,9 @@ jobs:
         run: sudo npm install
         working-directory: ./node-application
 
-      - name: Build the application
-        run: sudo npm run build
-        working-directory: ./node-application
+      # - name: Build the application
+      #   run: sudo npm run build
+      #   working-directory: ./node-application
 
       - name: List files before zip
         run: ls -la ./node-application
