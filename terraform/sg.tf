@@ -82,19 +82,19 @@ resource "aws_security_group" "eb_instances" {
   vpc_id = module.vpc.vpc_id
 
   ingress {
-    from_port = 80
-    to_port   = 80
-    protocol  = "tcp"
-    # cidr_blocks     = ["0.0.0.0/0"] # Allow HTTP traffic
-    security_groups = [aws_security_group.alb.id]
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Allow HTTP traffic
+    # security_groups = [aws_security_group.alb.id]
   }
 
   ingress {
-    from_port = 443
-    to_port   = 443
-    protocol  = "tcp"
-    # cidr_blocks     = ["0.0.0.0/0"] # Allow HTTPS traffic
-    security_groups = [aws_security_group.alb.id]
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Allow HTTPS traffic
+    # security_groups = [aws_security_group.alb.id]
   }
 
   egress {

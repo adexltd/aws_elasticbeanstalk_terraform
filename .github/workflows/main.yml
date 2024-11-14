@@ -16,6 +16,7 @@ env:
     applicationName: ebs-ue1-eb-d-eb-app
     environmentName: ebs-ue1-eb-d-eb-env
     terraformDir: ./terraform
+    appDir: ./node-application
 
 jobs:
     terraform_infrastructure:
@@ -98,11 +99,11 @@ jobs:
       #   working-directory: ./node-application
 
       - name: List files before zip
-        run: ls -la ./node-application
+        run: ls -la ${{ env.appDir }}
 
       - name: Zip application
         run: |
-          cd node-application
+          cd ${{ env.appDir }}
           zip -r ../app.zip .
 
       - name: List files after zip
