@@ -15,5 +15,5 @@ output "elastic_beanstalk_application_name" {
 }
 
 output "elastic_beanstalk_environment_name" {
-  value = module.elastic_beanstalk_environment.elastic_beanstalk_environment_name
+  value = module.elastic_beanstalk_environment.endpoint
 }
