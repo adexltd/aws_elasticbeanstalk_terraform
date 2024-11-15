@@ -1,0 +1,22 @@
+{
+  "artifact_bucket": {
+    "sensitive": false,
+    "type": "string",
+    "value": "ebs-ue1-eb-d-s3"
+  },
+  "elastic_beanstalk_application_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "ebs-ue1-eb-d-eb-app"
+  },
+  "elastic_beanstalk_environment_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "ebs-ue1-eb-d-eb-env.eba-zt44u7ae.us-east-1.elasticbeanstalk.com"
+  },
+  "latest_ubuntu_ami_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "ami-095a8f574cb0ac0d0"
+  }
+}
