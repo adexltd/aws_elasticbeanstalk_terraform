@@ -42,7 +42,7 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Version
-        run: echo "Terraform version=$(terraform --version)" ##
+        run: echo "Terraform version=$(terraform --version)" 
 
       - name: Terraform Init
         run: terraform init
