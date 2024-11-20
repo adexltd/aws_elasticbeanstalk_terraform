@@ -1,0 +1,53 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Node.js App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .entry-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter a Value</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="value" required>
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Entries:</h2>
+    <div id="entries">
+        <% entries.forEach(entry => { %>
+            <div class="entry-box">
+                <span><%= entry.value %></span>
+                <form action="/delete/<%= entry.id %>" method="POST" style="display:inline;">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
