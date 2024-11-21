@@ -3,7 +3,7 @@ repos:
     rev: "v0.18.0"
     hooks:
       - id: terraform-docs-go
-        args: ["markdown", "table", "--output-file", "README.md", "root_infra"]
+        args: ["markdown", "table", "--output-file", "README.md", "terraform"]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
