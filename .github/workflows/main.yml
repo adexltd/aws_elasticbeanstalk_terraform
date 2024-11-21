@@ -136,14 +136,14 @@ jobs:
           aws elasticbeanstalk create-application-version \
             --application-name ${{env.applicationName}} \
             --region us-east-1 \
-            --version-label $VERSION_LABEL \
+            --version-label SampleL \
             --source-bundle S3Bucket=${{env.app_bucket_name}},S3Key=app.zip \
             --debug
   
           aws elasticbeanstalk update-environment \
             --application-name ${{env.applicationName}} \
             --environment-name ${{env.environmentName}} \
-            --version-label $VERSION_LABEL \
+            --version-label Sample \
             --debug
   
       - name: Notify success
