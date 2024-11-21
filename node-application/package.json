@@ -1,16 +1,15 @@
 {
-  "name": "nodejs-todo",
+  "name": "NodeJS",
   "version": "1.0.0",
-  "description": "A simple to do list app ",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Vanessa Ating",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.0",
-    "ejs": "^2.5.7",
-    "express": "^4.15.4"
+    "express": "^4.17.1"
   }
 }
